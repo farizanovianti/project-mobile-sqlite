@@ -43,8 +43,8 @@ class databaseHelper(private val context: Context):
     fun readUser(username : String, password : String): Boolean{
         val db = readableDatabase
         val selection = "$COLUMN_USERNAME = ? AND $COLUMN_PASSWORD = ?"
-        var selectioArgs = arrayOf(username, password)
-        val cursor = db.query(TABLE_NAME, null, selection, selectioArgs, null, null, null)
+        var selectionArgs = arrayOf(username, password)
+        val cursor = db.query(TABLE_NAME, null, selection, selectionArgs, null, null, null)
 
         val userExists = cursor.count > 0
         cursor.close()
